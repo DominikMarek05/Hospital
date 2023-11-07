@@ -13,11 +13,11 @@ public abstract class Person {
     public abstract String description();
 
     public Person(String name, String surname, int age, Gender gender, Date dateOfBirth) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
+            this.name = name;
+            this.surname = surname;
+            this.age = age;
+            this.gender = gender;
+            this.dateOfBirth = dateOfBirth;
     }
 
     public String getName() {
@@ -39,4 +39,5 @@ public abstract class Person {
     public Date getDateOfBirth() {
         return dateOfBirth;
     }
+
 }

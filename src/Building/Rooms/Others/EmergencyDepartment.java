@@ -9,6 +9,6 @@ public class EmergencyDepartment extends Room {
 
     @Override
     public String description() {
-        return null;
+        return "EMERGENCY DEPARTMENT: A place of providing health care services to people in a state of sudden health threat";
     }
 }

@@ -9,6 +9,6 @@ public class Gynecology extends Room {
 
     @Override
     public String description() {
-        return null;
+        return "GYNECOLOGY: A place dealing with the prevention and treatment of diseases of the female reproductive system";
     }
 }

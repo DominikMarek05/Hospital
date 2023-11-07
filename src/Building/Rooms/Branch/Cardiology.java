@@ -9,6 +9,6 @@ public class Cardiology extends Room {
 
     @Override
     public String description() {
-        return null;
+        return "CARDIOLOGY: A place dealing with diseases and defects of the cardiovascular system, their diagnosis and treatment.";
     }
 }

@@ -9,6 +9,6 @@ public class Laryngology extends Room {
 
     @Override
     public String description() {
-        return null;
+        return "LARYNGOLOGY: A place dealing with diseases of the ear, throat and larynx.";
     }
 }
