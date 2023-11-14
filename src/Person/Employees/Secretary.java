@@ -12,13 +12,14 @@ public class Secretary extends Employee{
 
     @Override
     public String description() {
-        return "SECRETARY INFORMATIONS" +
-                "Name: " + getName() + '\'' +
-                "Surname: " + getSurname() + '\'' +
+        return "\u001B[35mSECRETARY INFORMATIONS" + '\n' +
+                "Name: " + getName() + '\n' +
+                "Surname: " + getSurname() + '\n' +
                 "Age: " + getAge() + '\n' +
                 "Gender: " + getGender() + '\n' +
-                "Date of birth: " + getDateOfBirth() + '\n' +
+                "Date of employment: " + getDateOfEmployment().getYear() + "." + (getDateOfEmployment().getMonth()+1) + "." + getDateOfEmployment().getDay() + '\n' +
                 "Salary: " + getSalary() + '\n' +
-                "Date of employment: " + getDateOfEmployment();
+                "Date of employment: " + getDateOfEmployment().getYear() + "." + (getDateOfEmployment().getMonth()+1) + "." + getDateOfEmployment().getDay() + '\n' +
+                "Workplace: " + getWorkplace().getName() + '\n';
     }
 }

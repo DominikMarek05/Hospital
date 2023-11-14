@@ -9,7 +9,6 @@ import java.util.Date;
 public abstract class Employee extends Person {
     private double salary;
     private Date dateOfEmployment;
-    private static int numberOfEmployees;
     private Room workplace;
 
     public Employee(String name, String surname, int age, Gender gender, Date dateOfBirth, double salary, Date dateOfEmployment, Room workplace) {
@@ -17,7 +16,6 @@ public abstract class Employee extends Person {
         this.salary = salary;
         this.dateOfEmployment = dateOfEmployment;
         this.workplace = workplace;
-        numberOfEmployees++;
     }
 
     @Override
@@ -39,11 +37,11 @@ public abstract class Employee extends Person {
         this.dateOfEmployment = dateOfEmployment;
     }
 
-    public static int getNumberOfEmployees() {
-        return numberOfEmployees;
+    public Room getWorkplace() {
+        return workplace;
     }
 
-    public static void readNumberOfEmployees(){
-        System.out.println("The number of employees is " + getNumberOfEmployees());
+    public void setWorkplace(Room workplace) {
+        this.workplace = workplace;
     }
 }

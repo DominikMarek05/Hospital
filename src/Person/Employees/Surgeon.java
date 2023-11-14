@@ -19,14 +19,15 @@ public class Surgeon extends Employee {
 
     @Override
     public String description() {
-        return "SURGEON INFORMATIONS" +
-                "Name: " + getName() + '\'' +
-                "Surname: " + getSurname() + '\'' +
+        return "\u001B[36mSURGEON INFORMATIONS" + '\n' +
+                "Name: " + getName() + '\n' +
+                "Surname: " + getSurname() + '\n' +
                 "Age: " + getAge() + '\n' +
                 "Gender: " + getGender() + '\n' +
-                "Date of birth: " + getDateOfBirth() + '\n' +
-                "Salary: " + getSalary() + '\n' +
-                "Date of employment: " + getDateOfEmployment() + '\n' +
-                "Speciality: " + getSpeciality();
+                "Date of birth: " + getDateOfBirth().getYear() + "." + (getDateOfBirth().getMonth()+1) + "." + getDateOfBirth().getDay() + '\n' +
+                "Salary: " + getSalary() + "PLN" + '\n' +
+                "Date of employment: " + getDateOfEmployment().getYear() + "." + (getDateOfEmployment().getMonth()+1) + "." + getDateOfEmployment().getDay() + '\n' +
+                "Workplace: " + getWorkplace().getName() + '\n' +
+                "Speciality: " + getSpeciality() + '\n';
     }
 }
