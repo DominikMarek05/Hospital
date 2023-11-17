@@ -33,10 +33,6 @@ public abstract class Employee extends Person {
         return dateOfEmployment;
     }
 
-    public void setDateOfEmployment(Date dateOfEmployment) {
-        this.dateOfEmployment = dateOfEmployment;
-    }
-
     public Room getWorkplace() {
         return workplace;
     }

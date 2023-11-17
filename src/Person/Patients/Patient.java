@@ -16,7 +16,6 @@ public class Patient extends Person {
         super(name, surname, age, gender, dateOfBirth);
         this.arrivalDate = arrivalDate;
         this.currentLocation = currentLocation;
-        setPeopleInQueue(getPeopleInQueue()+1);
     }
 
     public Date getArrivalDate() {
@@ -25,13 +24,13 @@ public class Patient extends Person {
 
     @Override
     public String description() {
-        return "PATIENT INFORMATIONS" +
-                "Name: " + getName() + '\'' +
-                "Surname: " + getSurname() + '\'' +
+        return "PATIENT INFORMATIONS" + '\n' +
+                "Name: " + getName() + '\n' +
+                "Surname: " + getSurname() + '\n' +
                 "Age: " + getAge() + '\n' +
                 "Gender: " + getGender() + '\n' +
-                "Date of birth: " + getDateOfBirth() + '\n' +
-                "Arrival date: " + getDateOfBirth() + '\n' +
-                "Current location: " + currentLocation.description();
+                "Date of birth: " + getDateOfBirth().getYear() + '.' +(getDateOfBirth().getMonth()+1) + '.' + getDateOfBirth().getDate() + '\n' +
+                "Arrival date: " + getArrivalDate().getYear() + '.' + (getArrivalDate().getMonth()+1) + '.' + getArrivalDate().getDate() + '\n' +
+                "Current location: " + currentLocation.description() + '\n';
     }
 }

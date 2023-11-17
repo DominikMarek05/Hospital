@@ -9,6 +9,6 @@ public class Neurosurgery extends Room {
 
     @Override
     public String description() {
-        return "NEUROSURGERY: A place dealing with the diagnosis and surgical treatment of diseases of the nervous system";
+        return "NEUROSURGERY: A place dealing with the diagnosis and surgical treatment of diseases of the nervous system.";
     }
 }

@@ -17,9 +17,9 @@ public class Nurse extends Employee{
                     "Surname: " + getSurname() + '\n' +
                     "Age: " + getAge() + '\n' +
                     "Gender: " + getGender() + '\n' +
-                    "Date of birth: " + getDateOfBirth().getYear() + "." + (getDateOfBirth().getMonth()+1) + "." + getDateOfBirth().getDay() + '\n' +
+                    "Date of birth: " + getDateOfBirth().getYear() + "." + (getDateOfBirth().getMonth()+1) + "." + getDateOfBirth().getDate() + '\n' +
                     "Salary: " + getSalary() + '\n' +
-                    "Date of employment: " + getDateOfEmployment().getYear() + "." + (getDateOfEmployment().getMonth()+1) + "." + getDateOfEmployment().getDay() + '\n' +
+                    "Date of employment: " + getDateOfEmployment().getYear() + "." + (getDateOfEmployment().getMonth()+1) + "." + getDateOfEmployment().getDate() + '\n' +
                     "Workplace: " + getWorkplace().getName() + '\n';
     }
 }
