@@ -18,8 +18,6 @@ public class RoomCollections {
     public void addCollections(Room ...room){
         listOfAllRooms.addAll(List.of(room));
     }
-    public void removeCollection(Room room) { listOfAllRooms.remove(room);}
-
     public ArrayList<Room> getListOfAllRooms() {
         return listOfAllRooms;
     }
@@ -28,5 +26,8 @@ public class RoomCollections {
             if(room.getNumberOfRoom() == numberOfRoom) return room;
         }
         throw new CouldNotFind("Room with this number does not exist.");
+    }
+    public boolean removeRoom(int numberOfRoom) throws CouldNotFind{
+        return listOfAllRooms.remove(searchRoom(numberOfRoom));
     }
 }

@@ -35,6 +35,13 @@ public class EmployeeCollections {
         }
         return employeeList;
     }
+
+    public Employee searchEmployeeByNameAndSurname(String name, String surname) throws CouldNotFind{
+        for (Employee emp: listOfAllEmployees) {
+            if(emp.getName().equals(name) && emp.getSurname().equals(surname)) return emp;
+        }
+        throw new CouldNotFind("This employee does not exist");
+    }
     public ArrayList<Employee> searchEmployeeBySalary(double searchedSalary){
         ArrayList<Employee> employeeList = new ArrayList<>();
         for (Employee employee: listOfAllEmployees) {
@@ -49,6 +56,8 @@ public class EmployeeCollections {
         }
         return employeeList;
     }
-    public void removeCollections(Employee employee) { listOfAllEmployees.remove(employee);}
+    public boolean removeEmployee(String employeeName, String employeeSurname) throws CouldNotFind{
+        return listOfAllEmployees.remove(searchEmployeeByNameAndSurname(employeeName, employeeSurname));
+    }
 
 }

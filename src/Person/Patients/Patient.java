@@ -1,13 +1,7 @@
 package Person.Patients;
-
 import Building.Rooms.Room;
 import Person.Person;
-
 import java.util.Date;
-
-import static Building.Rooms.Others.WaitingRoom.getPeopleInQueue;
-import static Building.Rooms.Others.WaitingRoom.setPeopleInQueue;
-
 public class Patient extends Person {
     private Date arrivalDate;
     private Room currentLocation;
@@ -21,7 +15,6 @@ public class Patient extends Person {
     public Date getArrivalDate() {
         return arrivalDate;
     }
-
     @Override
     public String description() {
         return "PATIENT INFORMATIONS" + '\n' +
