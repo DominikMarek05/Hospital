@@ -47,7 +47,7 @@ public class Main {
         Laryngology secondLaryngology = new Laryngology("Laryngology room for kids", 6);
         Gynecology gynecology = new Gynecology("Gynecology room", 7);
         Neurosurgery firstNeurosurgery = new Neurosurgery("Neurosurgery room", 9);
-        Neurosurgery secondNeurosurgery = new Neurosurgery("Neurosurgery room", 10);
+        Neurosurgery secondNeurosurgery = new Neurosurgery("Neurosurgery room for kids", 10);
 
         roomCollections.addCollections(waitingRoom, emergencyDepartment, firstCardiology, secondCardiology, firstLaryngology, secondLaryngology, gynecology, firstNeurosurgery, secondNeurosurgery);
 
@@ -56,11 +56,17 @@ public class Main {
         EmployeeCollections employeeCollections = new EmployeeCollections(new ArrayList<>());
 
         Surgeon surgeon1 = new Surgeon("Stanisław", "Rejmontowski", 46, Male, new Date(1977, JANUARY, 1), 8330, "Cardiologist", new Date(1999, Calendar.APRIL, 9), firstCardiology);
-        Surgeon surgeon2 = new Surgeon("Stanisław", "Latko", 55, Male, new Date(1968, FEBRUARY, 3), 9510, "Neurologist", new Date(1989, SEPTEMBER, 1), gynecology);
+        Surgeon surgeon2 = new Surgeon("Stanisław", "Latko", 55, Male, new Date(1968, FEBRUARY, 3), 9510, "Neurologist", new Date(1989, SEPTEMBER, 1), firstNeurosurgery);
+        Surgeon surgeon3 = new Surgeon("Magdalena", "Różdżka", 33, Female, new Date(1990, AUGUST, 5), 8910, "Gynecologist", new Date(2010, NOVEMBER, 7), gynecology);
+        Surgeon surgeon4 = new Surgeon("Ewa", "Domagała", 53, Female, new Date(1970, MAY, 3), 10000, "Neurosurgery", new Date(1994, APRIL, 25), firstNeurosurgery);
         Secretary secretary1 = new Secretary("Anna", "Nowak", 24, Female, new Date(1999, MAY, 26), 3000, new Date(2021, SEPTEMBER, 3), waitingRoom);
         Secretary secretary2 = new Secretary("Monika", "Dziarek", 26, Female, new Date(1997, JULY, 11), 3000, new Date(2022, SEPTEMBER, 9), waitingRoom);
+        Nurse nurse1 = new Nurse("Natalia", "Mazowiecka", 25, Female, new Date(1998, JUNE, 1), 4200, new Date(2023, JUNE, 26), secondCardiology);
+        Nurse nurse2 = new Nurse("Natalia", "Stasiak", 25, Female, new Date(1998, OCTOBER, 17), 4200, new Date(2023, JUNE, 26), secondNeurosurgery);
+        Nurse nurse3 = new Nurse("Mateusz", "Wajcheprzełóż", 27, Male, new Date(1996, MAY, 2), 4100, new Date(2023, JUNE, 26), firstLaryngology);
+        Nurse nurse4 = new Nurse("Patryk", "Jaki", 39, Male, new Date(1985, FEBRUARY, 200), 4500, new Date(2010, APRIL, 9), firstNeurosurgery);
 
-        employeeCollections.addCollections(surgeon1, surgeon2, secretary1, secretary2);
+        employeeCollections.addCollections(surgeon1, surgeon2, surgeon3, surgeon4, secretary1, secretary2, nurse1, nurse2, nurse3, nurse4);
 
         // Creating patient objects, adding them to PatientCollections object.
 
@@ -71,8 +77,13 @@ public class Main {
         Patient patient3 = new Patient("Stanisław", "Bartman", 25, Male, new Date(1998, APRIL, 9), new Date(2023, NOVEMBER, 7), waitingRoom);
         Patient patient4 = new Patient("Janusz", "Wiśniewski", 16, Male, new Date(2007, MARCH, 13), new Date(2023, NOVEMBER, 7), waitingRoom);
         Patient patient5 = new Patient("Gościwuj", "Sędziwój", 69, Male, new Date(1954, FEBRUARY, 28), new Date(2023, NOVEMBER, 7), waitingRoom);
+        Patient patient6 = new Patient("Rafał", "Marek", 69, Male, new Date(1954, FEBRUARY, 28), new Date(2023, OCTOBER, 28), firstNeurosurgery);
+        Patient patient7 = new Patient("Łukasz", "Serwan", 19, Male, new Date(2004, MARCH, 13), new Date(2023, NOVEMBER, 11), firstNeurosurgery);
+        Patient patient8 = new Patient("Maria", "Serwon", 14, Male, new Date(2008, DECEMBER, 4), new Date(2023, NOVEMBER, 14), emergencyDepartment);
+        Patient patient9 = new Patient("Jakub", "Durda", 37, Male, new Date(1986, FEBRUARY, 28), new Date(2023, OCTOBER, 31), firstNeurosurgery);
+        Patient patient10 = new Patient("Jerzy", "Pałeczka", 16, Male, new Date(2007, NOVEMBER, 18), new Date(2023, NOVEMBER, 17), secondNeurosurgery);
 
-        patientCollections.addCollections(patient1, patient2, patient3, patient4, patient5);
+        patientCollections.addCollections(patient1, patient2, patient3, patient4, patient5, patient6, patient7, patient8, patient9, patient10);
 
         // starting application
 
@@ -81,7 +92,6 @@ public class Main {
             System.out.println("Welcome in hospital management application!\n");
             do{
             System.out.println("\u001B[39m\t");
-            System.out.println("Welcome in hospital management application!\n");
             System.out.println("Write 1 if you want to show datas.");
             System.out.println("Write 2 if you want to modify datas.");
             System.out.println("Write 3 if you want to delete datas.");
@@ -511,9 +521,13 @@ public class Main {
                                     int nurseMonthOfEmployment = inputNumber.nextInt();
                                     System.out.println("Write year of employment of new nurse.");
                                     int nurseYearOfEmployment = inputNumber.nextInt();
+                                    for (int i = 0; i < roomCollections.getListOfAllRooms().size(); i++) {
+                                        System.out.println(roomCollections.getListOfAllRooms().get(i).getName() + " " + roomCollections.getListOfAllRooms().get(i).getNumberOfRoom());
+                                    }
                                     System.out.println("Write number of workplace of new nurse.");
                                     int nurseWorkplace = inputNumber.nextInt();
-                                    employeeCollections.addCollections(new Nurse(nurseName, nurseSurname, nurseAge, nurseGender, new Date(nurseDayOfBirth, (nurseMonthOfBirth - 1), nurseYearOfBirth), nurseSalary, new Date(nurseDayOfEmployment, (nurseMonthOfEmployment - 1), nurseYearOfEmployment), roomCollections.searchRoom(nurseWorkplace)));
+
+                                    employeeCollections.addCollections(new Nurse(nurseName, nurseSurname, nurseAge, nurseGender, new Date(nurseYearOfBirth, (nurseMonthOfBirth - 1), nurseDayOfBirth), nurseSalary, new Date(nurseYearOfEmployment, (nurseMonthOfEmployment - 1), nurseDayOfEmployment), roomCollections.searchRoom(nurseWorkplace)));
                                     System.out.println("Created employee:" + employeeCollections.getListOfAllEmployees().get(employeeCollections.getListOfAllEmployees().size() - 1).description());
                                 }
                                 case 2 -> {
@@ -543,9 +557,12 @@ public class Main {
                                     int secretaryMonthOfEmployment = inputNumber.nextInt();
                                     System.out.println("Write year of employment of new secretary.");
                                     int secretaryYearOfEmployment = inputNumber.nextInt();
+                                    for (int i = 0; i < roomCollections.getListOfAllRooms().size(); i++) {
+                                        System.out.println(roomCollections.getListOfAllRooms().get(i).getName() + " " + roomCollections.getListOfAllRooms().get(i).getNumberOfRoom());
+                                    }
                                     System.out.println("Write number of workplace of new secretary.");
                                     int secretaryWorkplace = inputNumber.nextInt();
-                                    employeeCollections.addCollections(new Secretary(secretaryName, secretarySurname, secretaryAge, secretaryGender, new Date(secretaryDayOfBirth, (secretaryMonthOfBirth - 1), secretaryYearOfBirth), secretarySalary, new Date(secretaryDayOfEmployment, (secretaryMonthOfEmployment - 1), secretaryYearOfEmployment), roomCollections.searchRoom(secretaryWorkplace)));
+                                    employeeCollections.addCollections(new Secretary(secretaryName, secretarySurname, secretaryAge, secretaryGender, new Date(secretaryYearOfBirth, (secretaryMonthOfBirth - 1), secretaryDayOfBirth), secretarySalary, new Date(secretaryYearOfEmployment, (secretaryMonthOfEmployment - 1), secretaryDayOfEmployment), roomCollections.searchRoom(secretaryWorkplace)));
                                     System.out.println("Created employee:" + employeeCollections.getListOfAllEmployees().get(employeeCollections.getListOfAllEmployees().size() - 1).description());
                                 }
                                 case 3 -> {
@@ -575,11 +592,14 @@ public class Main {
                                     int surgeonMonthOfEmployment = inputNumber.nextInt();
                                     System.out.println("Write year of employment of new surgeon.");
                                     int surgeonYearOfEmployment = inputNumber.nextInt();
+                                    for (int i = 0; i < roomCollections.getListOfAllRooms().size(); i++) {
+                                        System.out.println(roomCollections.getListOfAllRooms().get(i).getName() + " " + roomCollections.getListOfAllRooms().get(i).getNumberOfRoom());
+                                    }
                                     System.out.println("Write number of workplace of new surgeon.");
                                     int surgeonWorkplace = inputNumber.nextInt();
                                     System.out.println("Write speciality of new surgeon");
                                     String surgeonSpeciality = inputString.nextLine();
-                                    employeeCollections.addCollections(new Surgeon(surgeonName, surgeonSurname, surgeonAge, surgeonGender, new Date(surgeonDayOfBirth, (surgeonMonthOfBirth - 1), surgeonYearOfBirth), surgeonSalary, surgeonSpeciality, new Date(surgeonDayOfEmployment, (surgeonMonthOfEmployment - 1), surgeonYearOfEmployment), roomCollections.searchRoom(surgeonWorkplace)));
+                                    employeeCollections.addCollections(new Surgeon(surgeonName, surgeonSurname, surgeonAge, surgeonGender, new Date(surgeonYearOfBirth, (surgeonMonthOfBirth - 1), surgeonDayOfBirth), surgeonSalary, surgeonSpeciality, new Date(surgeonYearOfEmployment, (surgeonMonthOfEmployment - 1), surgeonDayOfEmployment), roomCollections.searchRoom(surgeonWorkplace)));
                                     System.out.println("Created employee:" + employeeCollections.getListOfAllEmployees().get(employeeCollections.getListOfAllEmployees().size() - 1).description());
                                 }
                                 default -> {
@@ -612,9 +632,13 @@ public class Main {
                             int patientArrivalMonth = inputNumber.nextInt();
                             System.out.println("Write year of arrive of new patient.");
                             int patientArrivalYear = inputNumber.nextInt();
+                            for (int i = 0; i < roomCollections.getListOfAllRooms().size(); i++) {
+                                System.out.println(roomCollections.getListOfAllRooms().get(i).getName() + " " + roomCollections.getListOfAllRooms().get(i).getNumberOfRoom());
+                            }
                             System.out.println("Write a number of room the new patient is currently located.");
                             int patientNumberOfLocation = inputNumber.nextInt();
-                            patientCollections.addCollections(new Patient(patientName, patientSurname, patientAge, patientGender, new Date(patientDayOfBirth, (patientMonthOfBirth - 1), patientYearOfBirth), new Date(patientArrivalDay, (patientArrivalMonth - 1), patientArrivalYear), roomCollections.searchRoom(patientNumberOfLocation)));
+                            patientCollections.addCollections(new Patient(patientName, patientSurname, patientAge, patientGender, new Date(patientYearOfBirth, (patientMonthOfBirth - 1), patientDayOfBirth), new Date(patientArrivalYear, (patientArrivalMonth - 1), patientArrivalDay), roomCollections.searchRoom(patientNumberOfLocation)));
+                            System.out.println("Created patient: " + patientCollections.getListOfAllPatients().get(patientCollections.getListOfAllPatients().size()-1).description());
                         }
                         default -> {
                             System.out.println("Introduced wrong value.");
