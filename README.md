@@ -1,0 +1,2 @@
+Zarządzanie szpitalem to aplikacja służąca do przedstawienia pomieszczeń w szpitalu, pracowników szpitala i pacjentów. Można pobrać dane o tych zmiennych, edytować je na różne spodoby, usuwać oraz dodawać własne.
+Dużą część tego projektu zawdzięczam Pawłowi, który pomógł mi z wieloma zagadnieniami, pokazał różne rozwiązania i pomógł z niektórymi linijkami kodu, aby aplikacja była przyjemniejsza zarówno do pisania jak i korzystania z niej.
